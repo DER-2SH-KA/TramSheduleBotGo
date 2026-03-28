@@ -17,15 +17,14 @@ var (
 			Timeout: time.Second * 5,
 		},
 	}
-)
-
-func main() {
-	botWithParser := &telegram.Bot{
+	botWithParser = &telegram.Bot{
 		Token:             token,
 		LongPollingTiming: time.Second * 5,
 		Parser:            Parser,
 	}
+)
 
+func main() {
 	err := botWithParser.Start()
 	if err != nil {
 		log.Fatal(err)
